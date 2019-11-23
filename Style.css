@@ -1,1 +1,35 @@
 
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.form{
+  width: 35%;
+  height: auto;
+  padding: 30px;
+  margin: 50px auto;
+  font-size: 25px;
+  line-height: 1.6em;
+  border-radius: 10px;
+  border: 2px black solid;
+}
+.text{
+  font-size: 20px;
+}
+.button{
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 10px;
+  background: rgb(52, 50, 62);
+  color: white;
+  border-radius: 10px;
+}
+
+.button:hover{
+  font-weight: bold;
+  cursor: pointer;
+
+}
