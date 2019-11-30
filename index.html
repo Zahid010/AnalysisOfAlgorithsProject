@@ -1,23 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PTSP</title>
-</head>
-<body>
-  
-  <!--
-  <form class="form">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./Style.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>PTSP</title>
+  </head>
+  <body>
+    <!-- <form class="form">
     <spam>
       <label for="">No of Tasks </label>
       <input type="number" id="noOfTask" class="text" placeholder="Task No">
       <button class="button" >SHOW</button>
     </sapm>
-  </form>
-  -->
-  
-  <script src="./javaScript.js"></script>
-</body>
+  </form> -->
+
+    <div id="app" class="main">
+      <div class="container">
+          <h1 class="display-3 text-center py-5 " v-if='showResult'>The Results Of Tasks</h1>
+          <h1 class="display-3 text-center py-5 title" v-else>
+              Processor Task Schdeuling
+            </h1>
+            <div class="row" v-if="showResult">
+                <div class="col-md-3"  v-for='task in tasks'>
+                    <transition-group name="slide" tag="div">
+                        <span
+                          class="task py-4 d-block"
+                          v-for="(task,index) in tasks"
+                          v-bind:key="task.startTime"
+                        >
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <h5 class="card-title">Task</h5>
+                              <p class="card-text">
+                                <p class="mb-1"><strong>Start Time</strong> : {{task.startTime}} </p>
+                                <p class="mb-1"><strong>End Time</strong> : {{task.endTime}}</p>
+                                <p class="mb-1"><strong>Profit</strong> : {{task.profit}}</p>
+                              </p>
+                            </div>
+                          </div>
+                        </span>
+                      </transition-group>
+                </div>
+
+                <button class="btn btn-warning col-md-12 submit-btn mt-5" @click='calculateAnotherResult'>Calculate Another Result?</button>
+            </div>
+        <div class="row justify-content-between justify-items-between" v-else>
+          <div class="col-md-6">
+            <h3 class="h1 mb-4">Create Task</h3>
+            <div class="alert alert-danger" v-if="errorMsg">{{errorMsg}}</div>
+            <div class="form-group">
+              <label for="startTime">Start Time</label>
+              <input
+                name="startTime"
+                id="startTime"
+                type="text"
+                class="form-control"
+                v-model="startTime"
+              />
+            </div>
+            <div class="form-group">
+              <label for="endTime">End Time</label>
+              <input
+                name="endTime"
+                id="endTime"
+                type="text"
+                class="form-control"
+                v-model="endTime"
+              />
+            </div>
+            <div class="form-group">
+              <label for="profit">Profit</label>
+              <input
+                name="profit"
+                id="profit"
+                type="text"
+                class="form-control"
+                v-model="profit"
+              />
+            </div>
+            <button
+              class="btn btn-outline-success btn-block submit-btn"
+              @click="createTask"
+            >
+              Create Task
+            </button>
+            <button
+            class="btn btn-outline-info btn-block submit-btn"
+            @click="calculateProfit"
+          >
+            Calculate Profit
+          </button>
+          </div>
+
+          <div class="col-md-5">
+            <h3 class="h1">Tasks Added</h3>
+            <transition-group name="slide" tag="div">
+              <span
+                class="task py-4 d-block"
+                v-for="(task,index) in tasks"
+                v-bind:key="task.startTime"
+              >
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                      <p class="mb-1"><strong>Start Time</strong> : {{task.startTime}} </p>
+                      <p class="mb-1"><strong>End Time</strong> : {{task.endTime}}</p>
+                      <p class="mb-1"><strong>Profit</strong> : {{task.profit}}</p>
+                    </p>
+                    <button
+                      class="btn btn-outline-danger"
+                      @click="deleteTask(index)"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </span>
+            </transition-group>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javaScript.js"></script>
+    <script src="./vueJs.js"></script>
+  </body>
 </html>
