@@ -1,11 +1,10 @@
-
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-.form{
+.form {
   width: 35%;
   height: auto;
   padding: 30px;
@@ -15,10 +14,10 @@
   border-radius: 10px;
   border: 2px black solid;
 }
-.text{
+.text {
   font-size: 20px;
 }
-.button{
+.button {
   padding: 15px;
   font-size: 20px;
   text-align: center;
@@ -28,8 +27,51 @@
   border-radius: 10px;
 }
 
-.button:hover{
+.button:hover {
   font-weight: bold;
   cursor: pointer;
+}
 
+.title {
+  background: linear-gradient(to right, #abebc6, #186a3b);
+  background-clip: text;
+  color: transparent;
+}
+
+.main {
+  height: 100vh;
+}
+
+.submit-btn {
+  transition: all 0.5s;
+  height: 6vh;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1);
+  height: 8vh;
+}
+
+.task {
+  transition: all 0.8s;
+  cursor: pointer;
+}
+
+.task > div {
+  background: #ffff99;
+  color: black;
+}
+
+.task:hover {
+  transform: scale(1.1);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.8s;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translateX(-10rem);
 }
