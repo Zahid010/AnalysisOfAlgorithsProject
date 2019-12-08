@@ -25,7 +25,6 @@
     </sapm>
   </form> -->
 
- 
     <div id="app" class="main">
       <div class="container">
           <h1 class="display-3 text-center py-5 " v-if='showResult'>The Results Of Tasks</h1>
@@ -80,30 +79,76 @@
                         </span>
                       </transition-group>
                 </div>
+              
 
+                <div class="dash">Order of Tasks</div>
+                <div class="col-md-3"  v-for='task in arrOfProfit.length-1'>
+                  <div v-if='arrOfProfit[task] ==0'>
+                    <transition-group name="slide" tag="div">
+                      <span
+                        class="task py-4 d-block"
+                        v-bind:key="task"
+                      >
+                        <div class="card h-100">
+                          <div class="card-body">
+                            <p class="card-title"><strong>Slot : {{task}}</strong></p>
+                            <p class="card-text">
+                              <p class="card-title note"><strong>No Task TO Perform</strong></p>
+                            </p>
+                            <p class="card-title colorless"><strong>..</strong></p>
+                          </div>
+                        </div>
+                      </span>
+                    </transition-group>
+                  </div>
+                  <div v-else='arrOfProfit[task] !=0'>
+                    <transition-group name="slide" tag="div">
+                        <span
+                          class="task py-4 d-block"
+                          v-bind:key="task"
+                        >
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <h5 class="card-title">Slot : {{task}}</h5>
+                              <p class="card-text">
+                                <p class="mb-1"><strong>Task No</strong> : {{arrOfTasks[task]}}</p>
+                                <p class="mb-1"><strong>Profit</strong> : {{arrOfProfit[task]}}</p>
+                              </p>
+                            </div>
+                          </div>
+                        </span>
+                      </transition-group>
+                    </div>
+                </div>
 
+                <div class="dashh">Total Profit By all Task : {{totalProfit}}</div>
+              
                 <button class="btn btn-warning col-md-12 submit-btn mt-5" @click='calculateAnotherResult'>Calculate Another Result?</button>
             </div>
         <div class="row justify-content-between justify-items-between" v-else>
           <div class="col-md-6">
             <h3 class="h1 mb-4">Create Task</h3>
             <div class="alert alert-danger" v-if="errorMsg">{{errorMsg}}</div>
+            
+            <!---
             <div class="form-group">
               <label for="startTime">Start Time</label>
               <input
                 name="startTime"
                 id="startTime"
-                type="text"
+                type="number"
                 class="form-control"
                 v-model="startTime"
               />
-            </div>
+            </div>  
+            -->
+
             <div class="form-group">
               <label for="endTime">End Time</label>
               <input
                 name="endTime"
                 id="endTime"
-                type="text"
+                type="number"
                 class="form-control"
                 v-model="endTime"
               />
@@ -113,7 +158,7 @@
               <input
                 name="profit"
                 id="profit"
-                type="text"
+                type="number"
                 class="form-control"
                 v-model="profit"
               />
@@ -138,14 +183,14 @@
               <span
                 class="task py-4 d-block"
                 v-for="(task,index) in tasks"
-                v-bind:key="task.startTime"
+                v-bind:key="task.taskNo"
               >
                 <div class="card h-100">
                   <div class="card-body">
-                    <h5 class="card-title">Task</h5>
+                    <h5 class="card-title">Task : {{task.taskNo}}</h5>
                     <p class="card-text">
-                      <p class="mb-1"><strong>Start Time</strong> : {{task.startTime}} </p>
-                      <p class="mb-1"><strong>End Time</strong> : {{task.endTime}}</p>
+                    <!---  <p class="mb-1"><strong>Start Time</strong> : {{task.startTime}} </p>  -->
+                      <p class="mb-1"><strong>Task End Before</strong> : {{task.endTime}}</p>
                       <p class="mb-1"><strong>Profit</strong> : {{task.profit}}</p>
                     </p>
                     <button
@@ -163,8 +208,7 @@
       </div>
     </div>
 
-    <script src="./javaScript.js"></script>
+  <!--  <script src="./javaScript.js"></script>   -->
     <script src="./vueJs.js"></script>
   </body>
 </html>
-
