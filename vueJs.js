@@ -59,15 +59,26 @@ new Vue({
       this.totalProfit=0;
     },
     validateInput: function() {
-      if (this.startTime.trim() == '')
+      /*if (this.startTime.trim() == '')
         return (this.errorMsg = 'Start Time Can Not Be Empty');
+      */
 
       if (this.endTime.trim() == '')
-        return (this.errorMsg = 'End Time Can Not Be Empty');
+        return (this.errorMsg = 'Ending Time Never Be Empty');
+    
+      if (this.endTime.trim() <= 0)
+      return (this.errorMsg = 'Ending Time Never Be -ve or 0');  
 
       if (this.profit.trim() == '')
         return (this.errorMsg = 'Profit Can Not Be Empty');
 
+      if (this.profit.trim() < 0)
+      return (this.errorMsg = 'No Need To Perform Task with -ve Profit');  
+
+      /*if (+this.startTime.trim() >= +this.endTime.trim())
+        return (this.errorMsg =
+          'Starting Time Should Be Equal or Less Than Ending Time');
+      */
       this.errorMsg = '';
     }
   }
