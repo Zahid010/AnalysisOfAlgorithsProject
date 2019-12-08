@@ -21,10 +21,19 @@ new Vue({
       this.validateInput();
       if (!this.errorMsg) {
         this.tasks.unshift({
+          taskNo: this.taskNo,
           startTime: this.startTime,
           endTime: this.endTime,
           profit: this.profit
         });
+        this.taskWRTProfit.unshift({
+          taskNo: this.taskNo,
+          startTime: this.startTime,
+          endTime: this.endTime,
+          profit: this.profit
+        });
+        
+        this.taskNo= this.taskNo+1;
         this.startTime = '';
         this.endTime = '';
         this.profit = '';
