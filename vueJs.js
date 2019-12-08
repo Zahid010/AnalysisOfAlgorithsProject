@@ -40,6 +40,9 @@ new Vue({
     },
     calculateAnotherResult: function() {
       this.showResult = false;
+      this.arrOfTasks.length=0;
+      this.arrOfProfit.length=0;
+      this.totalProfit=0;
     },
     validateInput: function() {
       if (this.startTime.trim() == '')
