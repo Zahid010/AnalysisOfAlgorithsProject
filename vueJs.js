@@ -31,8 +31,16 @@ new Vue({
       }
     },
     deleteTask: function(index) {
-      this.tasks.splice(index, 1);
-    },
+
+       let taskNoOfRemoving=this.tasks[index].taskNo;
+       this.tasks.splice(index, 1);
+
+        for(let i=0; i<this.taskWRTProfit.length;i++){
+          if(this.taskWRTProfit[i].taskNo==taskNoOfRemoving){
+             this.taskWRTProfit.splice(i, 1);
+           }
+        }  
+     },
     calculateProfit: function() {
       if (this.tasks.length > 0) {
         this.showResult = true;
