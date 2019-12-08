@@ -22,7 +22,7 @@
   font-size: 20px;
   text-align: center;
   margin: 10px 10px;
-  background: rgb(51, 50, 61);
+  background: rgb(52, 50, 62);
   color: white;
   border-radius: 10px;
 }
@@ -33,35 +33,9 @@
 }
 
 .title {
-  background: linear-gradient(to right, #abebc6, #186a3b);
+  background: #66658a;  /*linear-gradient(to right, #8fecb6, #2aeb7e);*/
   background-clip: text;
-  color: transparent;
-}
-.card-title{
-  padding-left: 30%;
-}
-
-.dash{
-  width: 100%;
-  padding-left: 40%;
-  font-size: 22px;
-  font-weight: bold;
-}
-.dashh{
-  width: 100%;
-  padding-left: 10%;
-  font-size: 30px;
-  
-}
-.note{
-  padding-left: 15%;
-}
-.colorless{
-  color: bisque;
-}
-
-.back{
-  border: turquoise solid 4px;
+  color: white;
 }
 
 .main {
@@ -101,4 +75,29 @@
   opacity: 0;
   transform: translateX(-10rem);
 }
+.card-title{
+  padding-left: 30%;
+}
 
+.dash{
+  width: 100%;
+  padding-left: 40%;
+  font-size: 22px;
+  font-weight: bold;
+}
+.dashh{
+  width: 100%;
+  padding-left: 10%;
+  font-size: 30px;
+  
+}
+.note{
+  padding-left: 15%;
+}
+.colorless{
+  color: bisque;
+}
+
+.back{
+  border: turquoise solid 4px;
+}
