@@ -5,10 +5,16 @@ new Vue({
     endTime: '',
     profit: '',
     errorMsg: '',
+    taskNo: 1,
     show: true,
     loading: false,
     showResult: false,
-    tasks: []
+    tasks: [],
+    taskWRTProfit: [],
+    maxEndTime:0,
+    arrOfProfit: [],
+    arrOfTasks: [],
+    totalProfit: 0
   },
   methods: {
     createTask: function() {
