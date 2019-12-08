@@ -37,6 +37,32 @@
   background-clip: text;
   color: transparent;
 }
+.card-title{
+  padding-left: 30%;
+}
+
+.dash{
+  width: 100%;
+  padding-left: 40%;
+  font-size: 22px;
+  font-weight: bold;
+}
+.dashh{
+  width: 100%;
+  padding-left: 10%;
+  font-size: 30px;
+  
+}
+.note{
+  padding-left: 15%;
+}
+.colorless{
+  color: bisque;
+}
+
+.back{
+  border: turquoise solid 4px;
+}
 
 .main {
   height: 100vh;
